@@ -1,0 +1,23 @@
+<div class="formWapper">
+  <h2> login User</h2>
+  <form [formGroup]="login">
+
+    <label>
+     Email:
+      <input type="text" formControlName="email" required>
+    </label>
+
+    <label>
+      Password:
+      <input type="password" formControlName="password" required>
+      <div *ngIf="login.controls['password'].invalid">
+        Please atleast one upper case letter
+    </div>
+    </label>
+   
+
+
+    <button type="submit" [disabled]="login.invalid" (click)="onSubmit()">Submit</button>
+  </form>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="formWapper">
+  <h2> Register User</h2>
+  <form [formGroup]="register">
+
+    <label>
+      Name:
+      <input type="text" formControlName="name" required>
+     
+    </label>
+
+    <label>
+      email:
+      <input type="email" formControlName="email" required>
+      <div *ngIf="register.controls['email'].invalid">
+        Please enter valid email 
+       </div>
+    </label>
+
+    <label>
+      password:{{register.controls['password'].invalid}}
+      <input type="password" formControlName="password" required>  
+        <div *ngIf="register.controls['password'].invalid">
+        Please atleast one upper case letter
+    </div>
+    </label>
+    
+
+
+    <button type="submit" [disabled]="register.invalid" (click)="onSubmit()">Submit</button>
+  </form>
+
+</div>
+
